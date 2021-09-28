@@ -5,10 +5,10 @@ const getRandomInt = function (min, max) {
   if (min < max && min >= 0 && max > 0 && min !== max) {
     return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
   } else {//Придумал, как должна вести себя функция, если передать значение «до» меньшее, чем значение «от», или равное ему.
-    return console.log('Внимание, min не может быть больше или равно max, числа должны быть положительными');// Не могу сообразить почему выбивает undefined после вывода сообщения
+    return document.write('Внимание, min не может быть больше или равно max, числа должны быть положительными ');// Не могу сообразить почему выбивает undefined после вывода сообщения
   }
 };
-console.log(getRandomInt(0, 10));
+getRandomInt(-2, 10);
 
 
 //Функция, возвращающая случайное число с плавающей точкой из переданного диапазона включительно.
@@ -16,7 +16,7 @@ const getRandomFloatingPoint = function (min, max) {
   if (min < max && min >= 0 && max > 0 && min !== max) { //Возвращаемое значение не менее (и может быть равно) min и не более (и не равно) max
     return (Math.random() * (max - min) + min).toFixed(2); //Возвращаем число с плавающей точкой из диапазона "от...до"; если необходимо, то указываем количество знаков после запятой с помощью .toFixed()
   } else {
-    return console.log("Ничего не выйдет!");
+    return document.write('Ничего не выйдет!');
   }
 };
-console.log(getRandomFloatingPoint(1, 10));
+getRandomFloatingPoint(1, 10);
