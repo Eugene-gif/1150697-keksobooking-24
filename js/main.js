@@ -42,20 +42,4 @@ function getRandomPositiveInteger (a, b) {
   return Math.floor(result);
 }
 getRandomPositiveInteger(1, 10);
-/*
-const getRandomInt = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  if (min < max && min >= 0 && max > 0 && min !== max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
-};
-getRandomInt(-2, 10);
 
-const getRandomFloatingPoint = (min, max) => {
-  if (min < max && min >= 0 && max > 0 && min !== max) {
-    return (Math.random() * (max - min) + min).toFixed(2);
-  }
-};
-getRandomFloatingPoint(1, 10);
-*/
