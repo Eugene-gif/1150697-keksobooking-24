@@ -1,22 +1,61 @@
-//Функция, возвращающая случайное целое число из переданного диапазона включительно.
-const getRandomInt = function (min, max) {
-  min = Math.ceil(min);// Округляем аргумент min до ближайшего меньшего числа
-  max = Math.floor(max);// Округляем аргумент max до ближайшего большего числа
+// eslint-disable-next-line no-unused-vars
+const author = {
+  avatar: '../img/avatars/user01.png',
+};
+// eslint-disable-next-line no-unused-vars
+const offer = {
+  title: 'Заголовок какого-то предложения 1',
+  address: 'location.lat, {{location.lng}}',
+  price: 500,
+  type: 'house',
+  rooms: 2,
+  guests: 2,
+  checkin: '12:00',
+  checkout: '14:00',
+  features: ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'],
+  description: 'Описание выбранного помещения на сайте Keksobooking',
+  photos: [
+    'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg',
+    'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg',
+    'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
+  ],
+};
+// eslint-disable-next-line id-length
+const getLocation = (a, b, digits = 1) => {
+  const lower = Math.min(Math.abs(a), Math.abs(b));
+  const upper = Math.max(Math.abs(a), Math.abs(b));
+  const result = Math.random() * (upper - lower) + lower;
+  return result.toFixed(digits);
+};
+
+// eslint-disable-next-line no-unused-vars
+const location = {
+  lat: getLocation(35.65000, 35.70000, 5),
+  lng: getLocation(139.70000, 139.80000, 5),
+};
+
+// eslint-disable-next-line id-length
+function getRandomPositiveInteger (a, b) {
+  const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
+  const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  return Math.floor(result);
+}
+getRandomPositiveInteger(1, 10);
+/*
+const getRandomInt = (min, max) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
   if (min < max && min >= 0 && max > 0 && min !== max) {
-    return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
-  } else {//Придумал, как должна вести себя функция, если передать значение «до» меньшее, чем значение «от», или равное ему.
-    return document.write('Внимание, min не может быть больше или равно max, числа должны быть положительными ');// Не могу сообразить почему выбивает undefined после вывода сообщения
+    return Math.floor(Math.random() * (max - min)) + min;
   }
 };
 getRandomInt(-2, 10);
 
-
-//Функция, возвращающая случайное число с плавающей точкой из переданного диапазона включительно.
-const getRandomFloatingPoint = function (min, max) {
-  if (min < max && min >= 0 && max > 0 && min !== max) { //Возвращаемое значение не менее (и может быть равно) min и не более (и не равно) max
-    return (Math.random() * (max - min) + min).toFixed(2); //Возвращаем число с плавающей точкой из диапазона "от...до"; если необходимо, то указываем количество знаков после запятой с помощью .toFixed()
-  } else {
-    return document.write('Ничего не выйдет!');
+const getRandomFloatingPoint = (min, max) => {
+  if (min < max && min >= 0 && max > 0 && min !== max) {
+    return (Math.random() * (max - min) + min).toFixed(2);
   }
 };
 getRandomFloatingPoint(1, 10);
+*/
